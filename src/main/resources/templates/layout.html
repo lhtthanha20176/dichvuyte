@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:fragment="head">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+<meta name="copyright" content="MACode ID, https://macodeid.com/">
+
+<title>Web Y Tế</title>
+
+<!-- Style -->
+<link rel="stylesheet" th:href="@{../css/maicons.css}">
+<link rel="stylesheet" th:href="@{../css/bootstrap/bootstrap.css}">
+<link rel="stylesheet" th:href="@{../css/style.css}">
+<link rel="stylesheet" th:href="@{../css/animate.css}">
+<link rel="stylesheet" th:href="@{../css/theme.css}">
+  <link rel="stylesheet" th:href="@{https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css}">
+
+
+</head>
+<body>
+	<header th:fragment="header">
+		<nav class="navbar navbar-expand-lg navbar-light bg-white sticky"
+			data-offset="300">
+			<div class="container">
+				<a href="#" class="navbar-brand">Hotro<span class="text-primary">Yte</span></a>
+
+				<button class="navbar-toggler" data-toggle="collapse"
+					data-target="#navbarContent" aria-controls="navbarContent"
+					aria-expanded="false" aria-label="Toggle navigation">
+					<span class="navbar-toggler-icon"></span>
+				</button>
+
+				<div class="navbar-collapse collapsed" id="navbarContent">
+					<ul class="navbar-nav ml-auto">
+						<li class="nav-item  " id="itemhome"><a class="nav-link"
+							th:href="@{/home}">Trang chủ</a></li>
+						<li class="nav-item " id="itembacsi"><a class="nav-link" th:href="@{/bacsi}">Thông
+								tin</a></li>
+						<li class="nav-item " id="itemlichkham"><a class="nav-link" th:href="@{/lichkham}">Lịch
+								khám</a></li>
+						<li class="nav-item" id="itemvaccine"><a class="nav-link" th:href="@{/vaccine}">vaccine</a>
+						</li>
+						<li class="nav-item " id="itemtoathuoc"><a class="nav-link"
+							th:href="@{/toathuoc}">Toa thuốc</a></li>
+						<li class="nav-item " id="itemaccount"><a class="nav-link" th:href="@{/account}">Chi
+								Tiet Tai Khoan</a></li>
+						<li class="nav-item"><a class="nav-link"
+							th:href="@{/login}">Đăng xuất</a></li>
+					</ul>
+				</div>
+
+			</div>
+		</nav>
+	</header>
+	<footer th:fragment="footer" style="background-color: white">
+    <div class="footer-top ">
+        <div class="container ">
+            <div class="row ">
+                <div class="col-md-6 col-lg-6 footer-about wow fadeInUp ">
+                    <img class="logo-footer " th:src="@{../images/HotroYte.png} " style="height: 130px;width: 360px" alt="logo-footer " data-at2x="assets/img/logo.png ">
+                    <p>
+                        Hãy đến với chúng tôi. Chúng tôi sẽ mang đến cho bạn những gì tuyệt vời nhất
+                    </p>
+               
+                </div>
+                <div class="col-md-5 col-lg-5 offset-lg-1 footer-contact wow fadeInDown ">
+                    <h3>Liên hệ:</h3>
+                    <p><i class="nc-icon nc-favourite-28 "></i> 61/7 Đường 104, Tăng Nhơn Phú A,Q9</p>
+                    <p><i class="nc-icon nc-favourite-28  "></i> Phone: 0327248445</p>
+                    <p><i class="nc-icon nc-favourite-28  "></i> Email: <a href="mailto:hello@domain.com ">phantrang011220@gmail.com</a></p>
+                    <p><i class="nc-icon nc-favourite-28 "></i> Skype: phantrang0112</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</footer>
+	<div th:fragment="linkJS">
+		<script th:src="@{js/jquery-3.5.1.min.js}"></script>
+		<script th:src="@{js/bootstrap.bundle.min.js}"></script>
+
+		<script th:src="@{js/google-maps.js}"></script>
+		<script th:src="@{js/wow.min.js}"></script>
+		<script th:src="@{js/theme.js}"></script>
+	</div>
+</body>
+</html>

@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="/bacsi/bacsilayout :: head">
+</head>
+<body>
+	<header
+		th:replace="~{/bacsi/bacsilayout  :: header(tenbacsi=${bacsi})}">
+	</header>
+<div class="container-fluid">
+        <main class="tm-main">
+          
+            <div class="content">
+    
+                <div class="container">
+                  <h1 class="mb-5 " style="text-align: center;"> Đăng kí lịch trực</h1>
+                    <h5  style="color:red; text-align: center;" th:text="${message}" >Đăng kí lịch vào thứ 7</h5>
+                <hr class="tm-hr-primary tm-mb-55">
+                <form th:action="@{/addlichkham}" th:object="${listngaydk}" method="POST">
+                  <div class="table-responsive">
+            
+                    <table class="table table-striped custom-table">
+                      <thead>
+                        <tr>
+                          <th scope="col">
+                            <label class="control control--checkbox">
+                              <input type="checkbox"  class="js-check-all" th:disabled="!${display}"/>
+                              <div class="control__indicator"></div>
+                            </label>
+                          </th>
+                          <th scope="col">Thứ</th>
+                          <th scope="col">Ngày</th>
+                          <th scope="col">Trạng thái</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                      
+                        <th:block th:each="item:${listngaytuan}">
+                        <tr scope="row">
+                      
+                            <td>
+                              <label class="control control--checkbox">
+                              <!-- th:style="${display} ? 'display: none' : 'display: inline' " -->
+                              <input type="checkbox"  th:field="*{listngay}"
+                  				th:value="${item.get('ngay')}"   th:disabled="!${display}" />
+                              <div class="control__indicator"></div>
+                              </label>
+                            </td>
+                            <td th:text="${item.get('thu')}" >
+                              Thứ 2
+                            </td>
+                            <td th:text="${item.get('ngay')}">12/2/2021</td>
+                            <td th:text="${item.get('trangthai')}" th:style="(${item.get('trangthai')}=='Chưa đăng kí' )? 'color:red':'color:blue' ">Đã đăng kí</td>
+                          </tr>
+                          </th:block>
+                      </tbody>
+                    </table>
+                    
+                  </div>
+                  <th:block th:if="${display}">
+                 
+                  <div class="row">
+						<button class="col-2 btn btn-danger"  type="submit" style="border: none; color:white" >
+								Lưu
+							
+						</button>
+					</div>
+					 </th:block>
+					</form>
+                </div>
+              </div>      
+            
+        </main>
+        <div  style="margin-left:24%;">
+		<footer th:replace="/layout::footer"></footer>
+		</div>
+    </div>
+   
+  
+	<script>
+		document.getElementById("dang_Ki_Lich").classList.add('active');
+		$(function() {
+
+			  $('.js-check-all').on('click', function() {
+			    
+			    if ( $(this).prop('checked') ) {
+			      $('.control--checkbox input[type="checkbox"]').each(function() {
+			        $(this).prop('checked', true);
+			        $(this).closest('tr').addClass('active');
+			      })
+			    } else {
+			      $('.control--checkbox input[type="checkbox"]').each(function() {
+			        $(this).prop('checked', false);
+			        $(this).closest('tr').removeClass('active');
+			      })
+			    }
+
+			  });
+
+			  $('.control--checkbox input[type="checkbox"]').on('click', function() {
+			    if ( $(this).closest('tr').hasClass('active') ) {
+			      $(this).closest('tr').removeClass('active');
+			    } else {
+			      $(this).closest('tr').addClass('active');
+			    }
+			  });
+
+			    
+
+			});
+			$(function() {
+
+				$('.js-multiple-select').select2({
+					tags: true,
+					tokenSeparators: [',', ' '],
+					placeholder: 'Select a state'
+				});
+
+			});
+	</script>
+	 <div th:replace="/bacsi/bacsilayout :: linkJS"></div>
+</body>
+</html>

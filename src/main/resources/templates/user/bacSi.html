@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="/layout :: head">
+</head>
+
+<body>
+
+	<!-- Back to top button -->
+	<div class="back-to-top"></div>
+
+	<header th:replace="/layout :: header"> </header>
+	<div class="container">
+		<div class="page-banner"
+			style="background-image: url(/images/hinh6.jpg);">
+			<div class="row justify-content-center align-items-center h-100">
+				<div class="col-md-6">
+					<nav aria-label="Breadcrumb">
+						<ul class="breadcrumb justify-content-center py-0 bg-transparent">
+							<li class="breadcrumb-item"><a href="index.html">Trang
+									chủ</a></li>
+							<li class="breadcrumb-item active">Thông tin</li>
+						</ul>
+					</nav>
+					<h1 class="text-center">Bác sĩ</h1>
+				</div>
+			</div>
+		</div>
+	</div>
+
+
+
+
+	<div class="page-section">
+		<div class="container">
+			<form th:action="@{/bacsi/selectKhoa}" method="POST"
+				class="form-search-blog">
+				<div class="row">
+					<div class="col-sm-10">
+						<div class="input-group">
+							<div class="input-group-prepend">
+								<!-- <select  th:field="*{ma}"class="custom-select bg-light">
+									<option value="">Khoa</option>
+									<option  th:each="khoa: ${listKhoa}" th:value="${khoa.ma}"
+										th:utext="	${khoa.tenkhoa}"></option>
+								</select> -->
+								<div class="dropdown">
+									<p class=" dropdown-toggle " data-toggle="dropdown"
+										style="padding: 12px 50px; background-color: blue; color: white;">Khoa</p>
+									<div class="dropdown-menu">
+										<a class="dropdown-item" th:href="@{/selectKhoa} + ${0}">Khoa</a>
+										<th:block th:each="khoa: ${listKhoa}">
+											<a class="dropdown-item" th:utext="	${khoa.tenkhoa}"
+												th:href="@{/selectKhoa} + ${khoa.ma}"></a>
+										</th:block>
+									</div>
+								</div>
+							</div>
+							<input type="text" name="tenBacSi" class="form-control"
+								>
+						</div>
+
+					</div>
+					<div class="col-sm-2 text-sm-right">
+						<button class="btn btn-secondary" type="text">
+							Tìm kiếm <span class="mai-filter"></span>
+						</button>
+					</div>
+
+				</div>
+			</form>
+			<div class="row my-5">
+				<th:block th:each="bacsi : ${listBacSi}">
+					<div class="col-lg-4 py-3">
+						<div class="card-blog">
+							<div class="header">
+								<div class="post-thumb">
+									<img th:src="@{${bacsi.get('img')}}" alt="">
+								</div>
+							</div>
+							<div class="body">
+								<h5 class="post-title">
+									<p th:text="${bacsi.get('fullName')}" style="color: black">Bác
+										sĩ A</p>
+								</h5>
+								<div class="post-date">
+									<div class="row">
+										<b style="margin-right: 10px">Email: </b><span
+											th:text="${bacsi.get('email')}"> </span>
+									</div>
+									<div class="row">
+										<b style="margin-right: 10px">SDT: </b><span
+											th:text="${bacsi.get('phone')}"> </span>
+									</div>
+									<div class="row">
+										<b style="margin-right: 10px">khoa: </b> <span
+											th:text="${bacsi.get('tenkhoa')}" style="color: blue"></span>
+									</div>
+
+
+								</div>
+							</div>
+						</div>
+					</div>
+				</th:block>
+
+			</div>
+
+			<nav aria-label="Page Navigation">
+				<ul class="pagination justify-content-center">
+					<li class="page-item disabled"><a class="page-link" href="#"
+						tabindex="-1" aria-disabled="true">Previous</a></li>
+					<li class="page-item"><a class="page-link" href="#">1</a></li>
+					<li class="page-item active" aria-current="page"><a
+						class="page-link" href="#">2 <span class="sr-only">(current)</span></a>
+					</li>
+					<li class="page-item"><a class="page-link" href="#">3</a></li>
+					<li class="page-item"><a class="page-link" href="#">Next</a></li>
+				</ul>
+			</nav>
+
+		</div>
+	</div>
+	<footer th:replace="/layout::footer"></footer>
+	<div th:replace="/layout :: linkJS">
+	</div>
+	<script >
+		document.getElementById("itembacsi").classList.add('active');
+	</script>
+</body>
+</html>

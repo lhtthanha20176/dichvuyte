@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE generatorConfiguration
+  PUBLIC "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN"
+  "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd">
+
+<generatorConfiguration>
+  
+  <context id="DB2Tables" targetRuntime="MyBatis3">
+    <jdbcConnection driverClass="com.mysql.jdbc.Driver"
+        connectionURL="jdbc:mysql://127.0.0.1:3306/qlyt"
+        userId="root"
+        password="123456">
+    </jdbcConnection>
+
+    <javaTypeResolver >
+      <property name="forceBigDecimals" value="false" />
+    </javaTypeResolver>
+
+    <javaModelGenerator targetPackage="com.trang.TrangWebYTe.model" targetProject="TrangWebYTe">
+    
+    </javaModelGenerator>
+
+    <sqlMapGenerator targetPackage="com.trang.TrangWebYTe.mapper.sql"  targetProject="TrangWebYTe/src/main/resources">
+    </sqlMapGenerator>
+
+    <javaClientGenerator type="XMLMAPPER" targetPackage="com.trang.TrangWebYTe.mapper"  targetProject="TrangWebYTe">
+    </javaClientGenerator>
+
+    <table  tableName="user" domainObjectName="User" >  
+    </table>
+      <table  tableName="bacsi" domainObjectName="BacSi" >  
+    </table>
+    <table  tableName="admin" domainObjectName="Admin" >  
+    </table>
+ <table  tableName="role" domainObjectName="Role" >  
+    </table>
+    <table  tableName="news" domainObjectName="News">
+    </table>
+	<table  tableName="khoa" domainObjectName="Khoa">
+    </table>
+    <table  tableName="lichkham" domainObjectName="LichKham">
+    </table>
+    <table tableName="chitietsotiemchung" domainObjectName="ChiTietSoTiemChung">
+    </table>
+        <table tableName="vaccine" domainObjectName="Vaccine">
+    </table>
+   
+    <table tableName="sotiemchung" domainObjectName="SoTiemChung">
+    </table>
+     <table tableName="sokhambenh" domainObjectName="SoKhamBenh">
+     </table>
+     <table tableName="chitietsokhambenh" domainObjectName="chitietSoKhamBenh" >
+     </table>
+     <table tableName="toathuoc" domainObjectName="ToaThuoc" >
+     </table>
+     <table tableName="chitiettoathuoc" domainObjectName="ChiTietToaThuoc" >
+     </table>
+     <table tableName="thuoc" domainObjectName="Thuoc" >
+     </table>
+     <table tableName="taikhoan" domainObjectName="TaiKhoan">
+     </table>
+      <table tableName="benh" domainObjectName="Benh">
+     </table>
+     <table  tableName="lichtruc" domainObjectName="LichTruc">
+     </table>
+  </context>
+</generatorConfiguration>
